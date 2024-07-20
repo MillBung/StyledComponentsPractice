@@ -1,27 +1,51 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
-const Father = styled.div`
+const Wrapper = styled.div`
   display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
 `;
 
-const BoxOne = styled.div`
-  background-color: teal;
-  width: 100px;
-  height:100px;
+const Emogi = styled.span`
+  font-size: 32px;
 `;
 
-const BoxTwo = styled.div`
+const Animations = keyframes`
+  0% {
+    transform: rotate(0deg);
+    border-radius: 0px;
+  }
+  50% {
+    border-radius: 100px;
+  }
+  100% {
+    transform: rotate(360deg);
+    border-radius: 0px;
+  }
+`;
+const Box = styled.div`
+  height: 200px;
+  width: 200px;
   background-color: tomato;
-  width: 100px;
-  height: 100px;
-`
+  animation: ${Animations} 1s linear infinite;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  ${Emogi}:hover {
+    font-size: 98px;
+  }
+`;
+
 function App() {
-  return (
-      <Father>
-        <BoxOne></BoxOne>
-        <BoxTwo></BoxTwo>
-      </Father>
-  );
+    return (
+        <Wrapper>
+            <Box>
+                <Emogi>😊</Emogi>
+            </Box>
+        </Wrapper>
+    );
 }
 
 export default App;
